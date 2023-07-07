@@ -1,14 +1,14 @@
-%define		kdeappsver	23.04.2
+%define		kdeappsver	23.04.3
 %define		qtver		5.15.2
 %define		kaname		tokodon
 Summary:	A modern Mastodon client
 Name:		ka5-%{kaname}
-Version:	23.04.2
+Version:	23.04.3
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Editors
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	b640b5d140bc2dd52a0e912f16b8d9f8
+# Source0-md5:	203f97a64fb40c8ef28169234de227a5
 URL:		https://www.kde.org/
 BuildRequires:	Qt5Core-devel
 BuildRequires:	Qt5Gui-devel >= 5.15.2
