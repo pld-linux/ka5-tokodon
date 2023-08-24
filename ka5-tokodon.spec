@@ -1,14 +1,14 @@
-%define		kdeappsver	23.04.3
+%define		kdeappsver	23.08.0
 %define		qtver		5.15.2
 %define		kaname		tokodon
 Summary:	A modern Mastodon client
 Name:		ka5-%{kaname}
-Version:	23.04.3
+Version:	23.08.0
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Editors
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	203f97a64fb40c8ef28169234de227a5
+# Source0-md5:	b15035de40977132a2c22f36b3cf048f
 URL:		https://www.kde.org/
 BuildRequires:	Qt5Core-devel
 BuildRequires:	Qt5Gui-devel >= 5.15.2
@@ -45,6 +45,7 @@ BuildRequires:	kf5-kxmlgui-devel >= 5.105.0
 BuildRequires:	kf5-qqc2-desktop-style-devel
 BuildRequires:	kf5-solid-devel >= 5.105.0
 BuildRequires:	kirigami-addons-devel >= 0.7.2
+BuildRequires:	mpv-client-devel
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
 BuildRequires:	shared-mime-info
@@ -57,14 +58,12 @@ A modern Mastodon(https://joinmastodon.org/) client.
 %setup -q -n %{kaname}-%{version}
 
 %build
-install -d build
-cd build
-%cmake -G Ninja \
+%cmake -B build \
+	-G Ninja \
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DHTML_INSTALL_DIR=%{_kdedocdir} \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
-	..
-%ninja_build
+	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
+%ninja_build -C build
 
 %{?with_tests:%ninja_build test}
 
