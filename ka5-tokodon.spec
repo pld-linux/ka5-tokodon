@@ -1,7 +1,12 @@
+#
+# Conditional build:
+%bcond_with	tests		# test suite
+
 %define		kdeappsver	23.08.5
 %define		qtver		5.15.2
 %define		kaname		tokodon
 Summary:	A modern Mastodon client
+Summary(pl.UTF-8):	Nowoczesny klient Mastodona
 Name:		ka5-%{kaname}
 Version:	23.08.5
 Release:	1
@@ -9,7 +14,7 @@ License:	GPL v3+
 Group:		X11/Applications/Editors
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
 # Source0-md5:	537545b6d45ec11d1c80692919430d4b
-URL:		https://www.kde.org/
+URL:		https://apps.kde.org/tokodon/
 BuildRequires:	Qt5Core-devel
 BuildRequires:	Qt5Gui-devel >= 5.15.2
 BuildRequires:	Qt5Keychain-devel
@@ -53,7 +58,10 @@ BuildRequires:	shared-mime-info
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-A modern Mastodon(https://joinmastodon.org/) client.
+A modern Mastodon (<https://joinmastodon.org/>) client.
+
+%description -l pl.UTF-8
+Nowoczesny klient serwisu Mastodon (<https://joinmastodon.org/>).
 
 %prep
 %setup -q -n %{kaname}-%{version}
@@ -64,12 +72,14 @@ A modern Mastodon(https://joinmastodon.org/) client.
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
+
 %ninja_build -C build
 
 %{?with_tests:%ninja_build test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %ninja_install -C build
 
 %find_lang %{kaname} --all-name --with-kde
