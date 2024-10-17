@@ -35,6 +35,7 @@ BuildRequires:	kf5-kdbusaddons-devel >= 5.77.0
 BuildRequires:	kf5-ki18n-devel >= 5.77.0
 BuildRequires:	kf5-kio-devel >= 5.77.0
 BuildRequires:	kf5-kirigami2-devel >= 5.77.0
+BuildRequires:	kf5-kirigami-addons-devel >= 0.7.2
 BuildRequires:	kf5-kitemviews-devel >= 5.105.0
 BuildRequires:	kf5-kjobwidgets-devel >= 5.105.0
 BuildRequires:	kf5-knotifications-devel >= 5.77.0
@@ -44,7 +45,6 @@ BuildRequires:	kf5-kwindowsystem-devel >= 5.77.0
 BuildRequires:	kf5-kxmlgui-devel >= 5.105.0
 BuildRequires:	kf5-qqc2-desktop-style-devel
 BuildRequires:	kf5-solid-devel >= 5.105.0
-BuildRequires:	kirigami-addons-devel >= 0.7.2
 BuildRequires:	mpv-client-devel
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
