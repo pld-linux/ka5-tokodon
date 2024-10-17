@@ -48,6 +48,7 @@ BuildRequires:	kf5-solid-devel >= 5.105.0
 BuildRequires:	mpv-client-devel
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	shared-mime-info
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
